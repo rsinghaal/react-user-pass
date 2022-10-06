@@ -8,6 +8,7 @@ const Userdetails = {
       .then((res) => {
         this.users = res.data;
         return this.users;
+        console.log(users);
       });
   },
 };
