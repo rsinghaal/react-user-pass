@@ -1,24 +1,9 @@
 import React, { useState } from 'react';
 import Welcome from './Welcome';
 
-import Userdetails from './Userdetails';
+//import Userdetails from './Userdetails';
 
 const Login = () => {
-  constructor();
-  {
-    super();
-    this.state = {
-      name: 'users',
-      users: [],
-    };
-  }
-  componentWillMount();
-  {
-    Userdetails.all().then((users) => {
-      console.log(users);
-      this.setState({ users });
-    });
-  }
   // React States
   const [errorMessages, setErrorMessages] = useState({});
   const [data, setData] = useState({});
@@ -30,8 +15,18 @@ const Login = () => {
   };
 
   // User Login info
-  const database = this.state;
-
+  const database = [
+    {
+      username: 'user1',
+      password: 'pass1',
+      role: 'admin',
+    },
+    {
+      username: 'user2',
+      password: 'pass2',
+      role: 'employee',
+    },
+  ];
   const errors = {
     uname: 'invalid username',
     pass: 'invalid password',
@@ -39,7 +34,6 @@ const Login = () => {
   };
 
   const handleSubmit = (event) => {
-    console.log(users);
     //Prevent page reload
     event.preventDefault();
 
