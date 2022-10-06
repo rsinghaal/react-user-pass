@@ -17,26 +17,26 @@ const Login = () => {
     {
       username: 'user1',
       password: 'pass1',
-      role1: 'admin',
+      role: 'admin',
     },
     {
       username: 'user2',
       password: 'pass2',
-      role1: 'employee',
+      role: 'employee',
     },
   ];
 
   const errors = {
     uname: 'invalid username',
     pass: 'invalid password',
-    role1error: 'invalid role1',
+    roleerror: 'invalid role',
   };
 
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
 
-    var { uname, pass, role1 } = document.forms[0];
+    var { uname, pass, role } = document.forms[0];
 
     // Find user login info
     const userData = database.find((user) => user.username === uname.value);
@@ -46,9 +46,9 @@ const Login = () => {
       if (userData.password !== pass.value) {
         // Invalid password
         setErrorMessages({ name: 'pass', message: errors.pass });
-      } else if (userData.role1 !== role1.value) {
+      } else if (userData.role !== role.value) {
         // Invalid password
-        setErrorMessages({ name: 'role1', message: errors.role1error });
+        setErrorMessages({ name: 'role', message: errors.roleerror });
       } else {
         setIsSubmitted(true);
       }
@@ -79,15 +79,15 @@ const Login = () => {
           {renderErrorMessage('pass')}
         </div>
         <div className="input-container">
-          <label>role1 </label>
+          <label>role </label>
           <input
             type="text"
-            id="role1"
+            id="role"
             onChange={getInputValue}
-            name="role1"
+            name="role"
             required
           />
-          {renderErrorMessage('role1error')}
+          {renderErrorMessage('roleerror')}
         </div>
         <div className="button-container">
           <input type="submit" />
