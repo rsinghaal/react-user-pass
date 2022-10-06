@@ -1,6 +1,8 @@
 import React from 'react';
 
 const Welcome = (props) => {
+  console.log(props.name);
+  console.log(props.name);
   let disabled = true;
   let type = 'text';
   let name = 'address';
